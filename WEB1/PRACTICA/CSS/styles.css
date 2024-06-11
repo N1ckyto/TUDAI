@@ -1,0 +1,19 @@
+body {
+    background-color: #000;
+}
+
+/* Estilo básico para el enlace */
+.link {
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    /* Transición suave */
+    background-color: blue;
+}
+
+/* Cambiar el fondo al pasar el mouse */
+.link:hover {
+    background-color: red;
+    /* Color de fondo al pasar el mouse */
+}

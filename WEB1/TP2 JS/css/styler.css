@@ -1,0 +1,40 @@
+.prendido {
+    background-color: rgb(255, 255, 103);
+}
+
+.apagado {
+    background-color: black;
+}
+
+#fondo {
+    background-color: black;
+}
+
+#img_id {
+    width: 550px;
+    height: 450px;
+}
+
+#dado_1,
+#dado_2 {
+    width: 100px;
+    height: 100px;
+}
+
+#registro {
+    display: flex;
+    margin-right: 86%;
+}
+
+#fondo_div {
+    background-color: rgb(255, 0, 0);
+}
+
+.fondo_prendido {
+    background-color: green;
+}
+
+.fondo_apago {
+    background-color: rgb(255, 0, 0);
+}
+

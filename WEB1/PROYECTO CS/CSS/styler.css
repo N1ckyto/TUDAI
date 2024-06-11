@@ -1,0 +1,91 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(177, 248, 224);
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    padding: 3px;
+    border-radius: 50%;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+.barra {
+    display: flex;
+    padding: 3px;
+    border: 1px solid black;
+    justify-content: end;
+}
+
+.link {
+    text-decoration: none;
+    margin: 10px;
+}
+
+.logoinsta {
+    width: 40px;
+    height: 40px;
+}
+
+.foro {
+    display: flex;
+    justify-content: space-between;
+}
+
+.noticias {
+    width: 50%;
+    height: 80%;
+}
+
+.titulo {
+    text-transform: uppercase;
+    margin-left: 5px;
+
+}
+
+.reel {
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.parrafo {
+    text-indent: 1%;
+    margin-left: 0.5%;
+}
+
+.publi {
+    width: 80px;
+    height: 430px;
+    border: 1px solid black;
+
+}
+
+.fotopubli {
+    width: 90%;
+    height: 20%;
+    padding: 5%;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(177, 248, 224);
+}
+
+.linkinsta {
+    padding: 10px;
+}

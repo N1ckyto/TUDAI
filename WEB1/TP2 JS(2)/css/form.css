@@ -1,0 +1,24 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.background_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100px;
+    background-color: #46a0f0;
+    border: 2px solid black;
+    margin-left: 1%;
+    margin-top: 1%;
+    border-radius: 10px;
+}
+
+li {
+    list-style: none;
+    width: 60%;
+    margin-bottom: 3px;
+}

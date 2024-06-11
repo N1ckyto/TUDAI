@@ -1,0 +1,21 @@
+#btn_1 {
+    color: white;
+    background-color: red;
+    border: 2px solid black;
+}
+
+#btn_2 {
+    color: white;
+    background-color: blue;
+    border: 2px solid black;
+}
+
+#btn_3 {
+    color: white;
+    background-color: green;
+    border: 2px solid black;
+}
+
+p {
+    font-size: xx-large;
+}
