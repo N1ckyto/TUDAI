@@ -13,63 +13,30 @@ public class Ejer_Tipo_Recuperatorio1 {
                 { 0, 0, 25, 25, 0, -5, 3, 0, 25, 44, 44, 0, -4, 1, 0, 0, 0, 0, 0, 0 },
                 { 0, 44, 44, 44, 0, -7, 15, 0, -4, 9, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0 }
         };
-        System.out.println("LA MATRIZ ORIGINAL QUEDO DE LA SIGUIENTE FORMA:");
         imprimir_matriz_int(matriz);
         System.out.println("");
-        mostrarSecuencias(matriz);
-        System.out.println("LA MATRIZ QUEDO MODIFICADA DE LA SIGUIENTE MANERA");
+        encontrarSecuencias(matriz);
         imprimir_matriz_int(matriz);
     }
 
-    public static void mostrarSecuencias(int[][] mat) {
+    public static void encontrarSecuencias(int[][] mat) {
+        int cantidadt = 0;
         for (int fila = 0; fila < MAXFILA; fila++) {
-            /*
-             * System.out.println("-----------------------------------------");
-             * System.out.println("CAMBIO Nº " + fila + " DE FILA");
-             * System.out.println("-----------------------------------------");
-             */
-            int pos_i = 0, pos_f = -1/* , contador = 1 */;
+            int pos_i = 0, pos_f = -1, cantidad = 0;
             while (pos_i < MAXCOLUMNA) {
                 pos_i = buscarPos_I(mat[fila], pos_f + 1);
                 if (pos_i < MAXCOLUMNA) {
                     pos_f = buscarPos_F(mat[fila], pos_i);
-                    /*
-                     * System.out.println(
-                     * "En la fila nº " + fila + " la secuencia nº " + contador +
-                     * " se encuentra entre la pos "
-                     * + pos_i +
-                     * " y la pos "
-                     * + pos_f);
-                     * System.out.println("");
-                     * contador++;
-                     */
-                    if (mat[fila][pos_i] < NUMBER_NEGATIVE) {
-                        int numero_corrimiento = 0, cant_numero_Secuencia = 0;
-                        cant_numero_Secuencia = cant_numero(mat[fila], pos_i, pos_f);
-                        numero_corrimiento = (mat[fila][pos_i] * NUMBER_NEGATIVE) - cant_numero_Secuencia;
-                        /*
-                         * System.out.println("el numero de corrimiento es: " + numero_corrimiento);
-                         * System.out
-                         * .println("la cantidad de numeros dentro de la secuencia es: " +
-                         * cant_numero_Secuencia);
-                         */
-                        agregar_secuencia(mat[fila], numero_corrimiento, pos_f);
-                        intercambio_numero(mat[fila], pos_i, pos_f, numero_corrimiento);
-                        /*
-                         * imprimir_matriz_int(mat);
-                         * System.out.println("-----------------------------------------");
-                         */
-                    } /*
-                       * else {
-                       * imprimir_matriz_int(mat);
-                       * System.out.println("");
-                       * System.out.println("NO SE REALIZARON CAMBIOS");
-                       * System.out.println("-----------------------------------------");
-                       * }
-                       */
+                    if (valuePosMat(mat[fila], pos_i) < NUMBER_NEGATIVE) {
+                        cantidad += cantidadD(mat[fila], pos_i);
+                        numeroNegativo(mat[fila], pos_i, pos_f);
+                    }
                 }
             }
+            cantidadt += cantidad;
+            System.out.println("la cantidad en la fila " + fila + " es: " + cantidad);
         }
+        System.out.println("cantidad total es: " + cantidadt);
     }
 
     public static int buscarPos_I(int[] arr, int pos) {
@@ -86,13 +53,22 @@ public class Ejer_Tipo_Recuperatorio1 {
         return pos - 1;
     }
 
-    public static int cant_numero(int[] arr, int pos_i, int pos_f) {
-        int contador = 0;
-        while (pos_i <= pos_f) {
-            contador++;
-            pos_i++;
-        }
-        return contador;
+    public static int valuePosMat(int[] arr, int pos) {
+        int valor = arr[pos];
+        return valor;
+    }
+
+    public static void numeroNegativo(int[] arr, int pos_i, int pos_f) {
+        int numero_corrimiento = 0, numero = arr[pos_f];
+        numero_corrimiento = Math.abs(arr[pos_i]) - 2;
+        agregar_secuencia(arr, numero_corrimiento, pos_f);
+        intercambio_numero(arr, pos_i, pos_f, numero_corrimiento, numero);
+    }
+
+    public static int cantidadD(int[] arr, int pos_i) {
+        int cantidadD = 0;
+        cantidadD += Math.abs(arr[pos_i]);
+        return cantidadD;
     }
 
     public static void agregar_secuencia(int[] arr, int numero_corrimiento, int pos) {
@@ -110,11 +86,9 @@ public class Ejer_Tipo_Recuperatorio1 {
         }
     }
 
-    public static void intercambio_numero(int[] arr, int pos_i, int pos_f, int numero) {
-        int valor = arr[pos_f];
-        arr[pos_i] = valor;
-        for (int i = pos_f + 1; i <= numero + pos_f; i++) {
-            arr[i] = valor;
+    public static void intercambio_numero(int[] arr, int pos_i, int pos_f, int numero_corrimiento, int numero) {
+        for (int i = pos_i; i <= numero_corrimiento + pos_f; i++) {
+            arr[i] = numero;
         }
     }
 
